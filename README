@@ -1,0 +1,8 @@
+The simple code of neutron scattering simulation.
+"neutron.c" is a serial implement, while "neutron_openmp.c" is a parallel one.
+
+Comment:
+- Line 27-29 in "neutron_openmp.c", we get the number of available processors and set it as number of threads in our program. It's a rather easy way to make full use of processors.
+
+- Why should we apply dynamical/guided schedule?
+  Cause in our problem, the time each single neutron simulation spend largely varies. (Some neutron may run straight out of graphite layer, while others wander around.) So it's a good idea to make iterations distributed dynamically, despite of higher overhead.
